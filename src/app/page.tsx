@@ -1,3 +1,13 @@
-export default function Home() {
-  return <div>Hello world</div>;
+import Header from '@/sections/Header'
+import React from 'react'
+
+const page = () => {
+  return (
+    <div>
+      <Header/>
+    </div>
+  )
 }
+
+export default page
+
