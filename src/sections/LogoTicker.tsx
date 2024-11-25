@@ -8,10 +8,10 @@ import echoLogo from "@/assets/logo-echo.png";
 
 const LogoTicker = () => {
   return (
-    <section>
+    <section className="py-20 md:py-24">
       <div className="container">
-        <div className="flex">
-          <div className="flex-1">
+        <div className="flex items-center gap-5">
+          <div className="flex-1 md:flex-none">
             <h2>Trusted by top innovative teams</h2>
           </div>
           <div className="flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
