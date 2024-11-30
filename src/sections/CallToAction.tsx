@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/components/Button";
-import React, { RefObject, useEffect, useRef } from "react";
+import React, { RefObject, useCallback, useEffect, useRef } from "react";
 import starsBg from "@/assets/stars.png";
 import gridLine from "@/assets/grid-lines.png";
 import {
@@ -15,18 +15,23 @@ import {
 const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const updateMousePosition = (event: MouseEvent) => {
-    if (!to.current) return;
-    const { top, left } = to.current.getBoundingClientRect();
-    mouseX.set(event.x - left);
-    mouseY.set(event.y - top);
-  };
+  const updateMousePosition = useCallback(
+    (event: MouseEvent) => {
+      if (!to.current) return;
+      const { top, left } = to.current.getBoundingClientRect();
+      mouseX.set(event.x - left);
+      mouseY.set(event.y - top);
+    },
+    [to, mouseX, mouseY] // Dependencies for the callback
+  );
+
   useEffect(() => {
     window.addEventListener("mousemove", updateMousePosition);
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
     };
-  }, []);
+  }, [updateMousePosition]); // Include the callback in the dependencies
+
   return [mouseX, mouseY];
 };
 
