@@ -145,7 +145,7 @@ export const Features = () => {
         <h2 className="text-5xl md:text-6xl font-medium text-center tracking-tighter">
           Elevate your SEO efforts
         </h2>
-        <p className="text-white/70 text-lg md:text-xl max-w-2xl max-auto tracking-tight text-center mt-5 lg:px-5">
+        <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto tracking-tight text-center mt-5 lg:px-5">
           From small startup to large enterprises, our AI-driven tool has
           revolutionize the way businesses approach SEO.
         </p>
